@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
+
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Дом рядом — Недвижимость</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://chatbot.gitcommitt.com/assets/widget/style.css" />
-  <style>
+<meta charset="utf-8"/>
+<title>Дом рядом — Недвижимость</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://chatbot.gitcommitt.com/assets/widget/style.css" rel="stylesheet"/>
+<style>
     body {
       font-family: Arial;
       background: #f5f7fa;
@@ -141,108 +142,97 @@
       padding: 20px;
       background: #f0f0f0;
     }
-  </style>
+  
+.search-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 100%;
+  margin: 20px auto;
+}
+.search-filter input, .search-filter button {
+  flex: 1 1 200px;
+  max-width: 250px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+</style>
 </head>
 <body>
-
 <header>Агентство "Дом рядом"</header>
 <nav>
-  <a href="#rent">Аренда</a>
-  <a href="#sale">Продажа</a>
-  <a href="#map">Карта</a>
-  <a href="#reviews">Отзывы</a>
-  <a href="#blog">Полезные советы</a>
-  <a href="#contact">Контакты</a>
+<a href="#rent">Аренда</a>
+<a href="#sale">Продажа</a>
+<a href="#map">Карта</a>
+<a href="#reviews">Отзывы</a>
+<a href="#blog">Полезные советы</a>
+<a href="#contact">Контакты</a>
 </nav>
-
 <div class="container">
-  <div class="search-filter">
-    <input type="text" id="searchBox" placeholder="Поиск объектов...">
-    <button onclick="search()">Поиск</button>
-    <button onclick="filterPrice(0, 5000000)">До 5 млн</button>
-    <button onclick="filterPrice(5000000, 10000000)">5–10 млн</button>
-    <button onclick="filterPrice(10000000, 999999999)">10+ млн</button>
-  </div>
-
-  <section id="rent">
-    <h2>Аренда</h2>
-    <div class="card">
-      <h3>1-комнатная квартира в Химках, 38 м²</h3>
-      <div class="images">
-        <img src="images/flat1.jpg" alt="Гостиная">
-        <img src="images/flat1_house.jpg" alt="Кухня">
-      </div>
-      <p><strong>Цена:</strong> 45 000 ₽/мес</p>
-      <p><strong>Описание:</strong> Уютная квартира с евроремонтом, встроенной кухней, мебелью и техникой.</p>
-      <p><strong>Парковка:</strong> Во дворе, свободная.</p>
-      <p><strong>Инфраструктура:</strong> Рядом ТЦ "Мега", метро Планерная, парк, школы и аптеки.</p>
-    </div>
-  </section>
-
-  <section id="sale">
-    <h2>Продажа</h2>
-    <div class="card">
-      <h3>2-комнатная квартира в Химках, 62 м²</h3>
-      <div class="images">
-        <img src="images/flat2.jpg" alt="Гостиная">
-        <img src="images/flat2_facade.jpg" alt="Фасад">
-      </div>
-      <p><strong>Цена:</strong> 8 500 000 ₽</p>
-      <p><strong>Описание:</strong> Светлая квартира с панорамными окнами, чистовой отделкой и балконом.</p>
-      <p><strong>Парковка:</strong> Подземный паркинг и гостевая.</p>
-      <p><strong>Инфраструктура:</strong> Спортивный комплекс, супермаркет, детсад и остановка автобуса.</p>
-    </div>
-
-    <div class="card">
-      <h3>Дом в Подмосковье, 120 м²</h3>
-      <div class="images">
-        <img src="images/house.jpg" alt="Фасад дома">
-        <img src="images/house_inside.jpg" alt="Гостиная">
-      </div>
-      <p><strong>Цена:</strong> 18 000 000 ₽</p>
-      <p><strong>Описание:</strong> Просторный коттедж с террасой, сауной и гаражом. Тёплые полы, камин, автономное отопление.</p>
-      <p><strong>Парковка:</strong> Гараж и места на участке.</p>
-      <p><strong>Инфраструктура:</strong> В пешей доступности магазин, автобусная остановка, лес и озеро.</p>
-    </div>
-  </section>
-
-  <section id="map">
-    <h2>Карта объектов с фото</h2>
-    <div class="map-wrapper">
-      <div class="map-image">
-        <div class="marker" style="top: 220px; left: 300px;">
-          <div class="popup">
-            <img src="images/flat1.jpg" alt="Квартира в Химках">
-            <p>1-комн. Химки</p>
-          </div>
-        </div>
-        <div class="marker" style="top: 150px; left: 500px;">
-          <div class="popup">
-            <img src="images/house.jpg" alt="Дом в Подмосковье">
-            <p>Дом в Подмосковье</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="reviews" class="reviews">
-    <h2>Отзывы клиентов</h2>
-    <p>🧑 Иван П.: "Сделка прошла быстро и спокойно!"</p>
-    <p>👩 Мария К.: "Подобрали квартиру за 2 дня, спасибо!"</p>
-  </section>
-
-  <section id="blog" class="blog">
-    <h2>Полезные советы</h2>
-    <p>📌 Как снять квартиру без посредников?</p>
-    <p>📌 Что важно при покупке дома в Подмосковье?</p>
-  </section>
-
-  <footer id="contact">
-    <p><strong>Контакты:</strong> г. Москва, ул. Примерная, д. 7<br>Телефон: +7 (495) 123-45-67</p>
-  </footer>
+<div class="search-filter">
+<input id="searchBox" placeholder="Поиск объектов..." type="text"/>
+<button onclick="search()">Поиск</button>
+<button onclick="filterPrice(0, 5000000)">До 5 млн</button>
+<button onclick="filterPrice(5000000, 10000000)">5–10 млн</button>
+<button onclick="filterPrice(10000000, 999999999)">10+ млн</button>
 </div>
-
+<section id="rent">
+<h2>Аренда</h2>
+<div class="card">
+<h3>1-комнатная квартира в Химках, 38 м²</h3>
+<div class="images">
+<img alt="Гостиная" src="images/flat1.jpg"/>
+<img alt="Кухня" src="images/flat1_house.jpg"/>
+</div>
+<p><strong>Цена:</strong> 45 000 ₽/мес</p>
+<p><strong>Описание:</strong> Уютная квартира с евроремонтом, встроенной кухней, мебелью и техникой.</p>
+<p><strong>Парковка:</strong> Во дворе, свободная.</p>
+<p><strong>Инфраструктура:</strong> Рядом ТЦ "Мега", метро Планерная, парк, школы и аптеки.</p>
+</div>
+</section>
+<section id="sale">
+<h2>Продажа</h2>
+<div class="card">
+<h3>2-комнатная квартира в Химках, 62 м²</h3>
+<div class="images">
+<img alt="Гостиная" src="images/flat2.jpg"/>
+<img alt="Фасад" src="images/flat2_facade.jpg"/>
+</div>
+<p><strong>Цена:</strong> 8 500 000 ₽</p>
+<p><strong>Описание:</strong> Светлая квартира с панорамными окнами, чистовой отделкой и балконом.</p>
+<p><strong>Парковка:</strong> Подземный паркинг и гостевая.</p>
+<p><strong>Инфраструктура:</strong> Спортивный комплекс, супермаркет, детсад и остановка автобуса.</p>
+</div>
+<div class="card">
+<h3>Дом в Подмосковье, 120 м²</h3>
+<div class="images">
+<img alt="Фасад дома" src="images/house.jpg"/>
+<img alt="Гостиная" src="images/house_inside.jpg"/>
+</div>
+<p><strong>Цена:</strong> 18 000 000 ₽</p>
+<p><strong>Описание:</strong> Просторный коттедж с террасой, сауной и гаражом. Тёплые полы, камин, автономное отопление.</p>
+<p><strong>Парковка:</strong> Гараж и места на участке.</p>
+<p><strong>Инфраструктура:</strong> В пешей доступности магазин, автобусная остановка, лес и озеро.</p>
+</div>
+</section>
+<section id="map"><h2>Карта объектов</h2><script async="" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1603bdabbb29214c59406e23a9dd0c9787e8f34dcc2be1f435fd58599ccf089f&amp;amp;width=100%25&amp;amp;height=400&amp;amp;lang=ru_RU&amp;amp;scroll=true" type="text/javascript"></script></section>
+<section class="reviews" id="reviews">
+<h2>Отзывы клиентов</h2>
+<p>🧑 Иван П.: "Сделка прошла быстро и спокойно!"</p>
+<p>👩 Мария К.: "Подобрали квартиру за 2 дня, спасибо!"</p>
+</section>
+<section class="blog" id="blog">
+<h2>Полезные советы</h2>
+<p>📌 Как снять квартиру без посредников?</p>
+<p>📌 Что важно при покупке дома в Подмосковье?</p>
+</section>
+<footer id="contact">
+<p><strong>Контакты:</strong> г. Москва, ул. Примерная, д. 7<br/>Телефон: +7 (495) 123-45-67</p>
+</footer>
+</div>
 <script>
   function filterPrice(min, max) {
     document.querySelectorAll(".card").forEach(card => {
@@ -258,8 +248,7 @@
     });
   }
 </script>
-
-<script type="module" src="./main.js"></script>
+<script src="./main.js" type="module"></script>
 <script src="https://chatbot.gitcommitt.com/assets/widget/loader-snippet.js"></script>
 <script>
   const scriptElement = document.createElement("script");
