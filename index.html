@@ -7,7 +7,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://chatbot.gitcommitt.com/assets/widget/style.css" />
   <style>
-    body { font-family: Arial; background: #f5f7fa; margin: 0; color: #111; }
+    body {
+  font-family: Arial;
+  background: #f5f7fa;
+  margin: 0;
+  color: #111;
+  font-size: 20px;
+}
     header {
       font-size: 2.5rem;
       font-weight: bold;
@@ -17,12 +23,23 @@
       background: #fff;
     }
     nav {
-      background: #003366;
-      padding: 10px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-    }
+  background: #003366;
+  padding: 15px;
+  display: flex;
+  justify-content: space-around;
+  gap: 40px;
+  font-size: 1.3rem;
+}
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+nav a:hover {
+  transform: scale(1.15);
+  color: #ffd700;
+}
     nav a {
       color: #fff;
       text-decoration: none;
@@ -71,8 +88,8 @@
       margin: 10px 0;
     }
     .card img {
-      width: 300px;
-      height: 200px;
+      width: 380px;
+      height: 250px;
       object-fit: cover;
       border-radius: 8px;
     }
@@ -113,7 +130,7 @@
   <div class="container">
     <div class="search-filter">
       <input type="text" id="searchBox" placeholder="Поиск...">
-      <button onclick="search()">🔍 Поиск</button>
+      <button onclick="search()">Поиск</button>
       <button onclick="filterPrice(0, 5000000)">До 5 млн</button>
       <button onclick="filterPrice(5000000, 10000000)">5–10 млн</button>
       <button onclick="filterPrice(10000000, 999999999)">10+ млн</button>
@@ -180,20 +197,20 @@
       </form>
     </section>
 
-    <section class="reviews">
+    <section class="reviews" style="border-left: 6px solid #007bff; padding-left: 15px;">
       <h2>Отзывы клиентов</h2>
       <p>🧑 Иван П.: "Сделка прошла быстро и спокойно!"</p>
       <p>👩 Мария К.: "Подобрали квартиру за 2 дня, спасибо!"</p>
     </section>
 
-    <section class="blog">
+    <section class="blog" style="border-left: 6px solid #007bff; padding-left: 15px;">
       <h2>Полезные советы</h2>
       <p>📌 Как снять квартиру без посредников?</p>
       <p>📌 Что важно при покупке дома в Подмосковье?</p>
     </section>
 
     <footer id="contact">
-      <p><strong>Контакты</strong><br>Адрес: г. Москва, ул. Примерная, д. 7</p>
+      <p><strong>Контакты</strong><br>Адрес: г. Москва, ул. Примерная, д. 7<br>Телефон: +7 (495) 123-45-67</p>
     </footer>
   </div>
 
