@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Дом рядом — Аренда и Продажа</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body { font-family: Arial; background: #f5f7fa; margin: 0; color: #111; }
+    .container { max-width: 1100px; margin: auto; padding: 20px; background: #fff; }
+    header { font-size: 2rem; font-weight: bold; color: #003366; margin-bottom: 20px; }
+    h2 { color: #003366; margin-top: 40px; }
+
+    .contact-buttons { display: flex; gap: 15px; margin: 15px 0; }
+    .contact-buttons a {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+    .contact-buttons a:hover {
+      background-color: #0056b3;
+    }
+
+    .card { margin-bottom: 40px; }
+    .card h3 { color: #003399; margin-bottom: 10px; }
+    .card img {
+      width: 300px;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 10px;
+    }
+    .card .images { display: flex; gap: 10px; margin: 10px 0; }
+
+    strong { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>Дом рядом</header>
+
+    <section>
+      <h2>О нас</h2>
+      <p>Мы подбираем и сопровождаем сделки по аренде и продаже квартир, домов и апартаментов в Москве и Подмосковье.</p>
+      <div class="contact-buttons">
+        <a href="tel:+74951234567">📞 Перезвоните мне</a>
+        <a href="https://wa.me/79991234567">💬 Заявка в WhatsApp</a>
+      </div>
+    </section>
+
+    <section>
+      <h2>Аренда</h2>
+      <div class="card">
+        <h3>1-комнатная квартира в Химках, 38 м²</h3>
+        <div class="images">
+          <img src="images/flat1.jpg" alt="Гостиная">
+          <img src="images/flat1_house.jpg" alt="Кухня">
+        </div>
+        <p><strong>Цена:</strong> 45 000 ₽/мес</p>
+        <p><strong>Описание:</strong> Уютная квартира с евроремонтом, встроенной кухней, мебелью и техникой.</p>
+        <p><strong>Парковка:</strong> Во дворе, свободная.</p>
+        <p><strong>Инфраструктура:</strong> Рядом ТЦ "Мега", метро Планерная, парк, школы и аптеки.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Продажа</h2>
+      <div class="card">
+        <h3>2-комнатная квартира в Химках, 62 м²</h3>
+        <div class="images">
+          <img src="images/flat2.jpg" alt="Гостиная">
+          <img src="images/flat2_facade.jpg" alt="Кухня">
+        </div>
+        <p><strong>Цена:</strong> 8 500 000 ₽</p>
+        <p><strong>Описание:</strong> Светлая квартира с панорамными окнами, чистовой отделкой и балконом.</p>
+        <p><strong>Парковка:</strong> Подземный паркинг и гостевая.</p>
+        <p><strong>Инфраструктура:</strong> Спортивный комплекс, супермаркет, детсад и остановка автобуса.</p>
+      </div>
+
+      <div class="card">
+        <h3>Дом в Подмосковье, 120 м²</h3>
+        <div class="images">
+          <img src="images/house.jpg" alt="Фасад дома">
+          <img src="images/house_inside.jpg" alt="Гостиная в доме">
+        </div>
+        <p><strong>Цена:</strong> 18 000 000 ₽</p>
+        <p><strong>Описание:</strong> Просторный коттедж с террасой, сауной и гаражом. Тёплые полы, камин, автономное отопление.</p>
+        <p><strong>Парковка:</strong> Гараж и места на участке.</p>
+        <p><strong>Инфраструктура:</strong> В пешей доступности магазин, автобусная остановка, лес и озеро.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Карта объектов</h2>
+      <script type="text/javascript" charset="utf-8" async
+        src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1603bdabbb29214c59406e23a9dd0c9787e8f34dcc2be1f435fd58599ccf089f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true">
+      </script>
+    </section>
+  </div>
+
+  <!-- Подключение чат-бота -->
+  <script src="https://chatbot.gitcommitt.com/assets/widget/loader-snippet.js"></script>
+  <script>
+    const scriptElement = document.createElement("script");
+    scriptElement.src = `https://chatbot.gitcommitt.com/assets/widget/chat-widget.umd.js?v=${Math.floor(
+      Math.random() * 10000000
+    )}`;
+    document.body.appendChild(scriptElement);
+  </script>
+</body>
+</html>
