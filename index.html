@@ -3,24 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Мой сайт с чатом</title>
-
-  <link
-    rel="stylesheet"
-    href="https://chatbot.gitcommitt.com/assets/widget/style.css"
-  />
+  <title>Дом рядом — аренда и продажа недвижимости</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://chatbot.gitcommitt.com/assets/widget/style.css" />
+  <style>
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Roboto', sans-serif;
+      background: #f4f6f8;
+      color: #2b2d42;
+      line-height: 1.6;
+    }
+    h1 {
+      text-align: center;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+    }
+    section {
+      max-width: 800px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #374151;
+      margin-top: 1.5rem;
+    }
+    ul {
+      padding-left: 1.2rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+  </style>
 </head>
 <body>
-  <h1>Привет! Это мой сайт</h1>
-  <p>Здесь скоро появится чат.</p>
+  <h1>Агентство "Дом рядом"</h1>
+  <section>
+    <h2>О нас</h2>
+    <p>Агентство "Дом рядом" занимается арендой и продажей недвижимости в Москве и Московской области. Мы помогаем быстро найти жильё под любой запрос.</p>
 
-  <script type="module" src="./main.js"></script>
+    <h2>Наши услуги</h2>
+    <ul>
+      <li>Аренда квартир, домов, апартаментов</li>
+      <li>Продажа недвижимости</li>
+      <li>Юридическое сопровождение сделок</li>
+      <li>Индивидуальный подбор объектов</li>
+    </ul>
+
+    <h2>Цены</h2>
+    <p>Комиссия агентства составляет от 1% при покупке недвижимости и от 50% месячной платы при аренде. Первичная консультация — бесплатно.</p>
+
+    <h2>Объекты</h2>
+    <ul>
+      <li>1-комнатная квартира на Тверской, 45 м² — 65 000 ₽/мес</li>
+      <li>2-комнатная квартира в Химках, 62 м² — 8 500 000 ₽</li>
+      <li>Дом в Подмосковье, 120 м² — 18 000 000 ₽</li>
+    </ul>
+
+    <h2>Контакты</h2>
+    <p>Email: info@domryadom.ru</p>
+    <p>Телефон: +7 (495) 123-45-67</p>
+    <p>Адрес: г. Москва, ул. Примерная, д. 7</p>
+
+    <h2>Часто задаваемые вопросы</h2>
+    <ul>
+      <li><strong>Как записаться на просмотр?</strong> — Позвоните нам или оставьте заявку через чат.</li>
+      <li><strong>Какие документы нужны для аренды?</strong> — Паспорт и договор аренды.</li>
+      <li><strong>Можно ли купить квартиру в ипотеку?</strong> — Да, мы сотрудничаем с ведущими банками.</li>
+    </ul>
+  </section>
+
   <script src="https://chatbot.gitcommitt.com/assets/widget/loader-snippet.js"></script>
   <script>
     const scriptElement = document.createElement("script");
-    scriptElement.src = `https://chatbot.gitcommitt.com/assets/widget/chat-widget.umd.js?v=${Math.floor(
-      Math.random() * 10000000
-    )}`;
+    scriptElement.src = `https://chatbot.gitcommitt.com/assets/widget/chat-widget.umd.js?v=${Math.floor(Math.random() * 10000000)}`;
     document.body.appendChild(scriptElement);
   </script>
 </body>
