@@ -1,90 +1,133 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>Дом рядом — недвижимость</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Дом рядом — Агентство недвижимости</title>
   <style>
-    body { font-family: Arial, sans-serif; background: #f0f2f5; padding: 2rem; color: #333; }
-    section { max-width: 900px; margin: auto; background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-    h1, h2, h3 { color: #1e3a8a; }
-    .property { margin-bottom: 2rem; }
-    .gallery { position: relative; max-width: 100%; }
-    .gallery img { width: 100%; border-radius: 6px; display: none; }
-    .gallery img.active { display: block; }
+    body {
+      margin: 0;
+      padding: 2rem;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f4f8;
+      color: #333;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1e3a8a;
+      margin-bottom: 2rem;
+    }
+    .property {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 2rem;
+    }
+    .gallery {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+    .gallery img {
+      width: 100%;
+      display: none;
+      border-radius: 10px;
+    }
+    .gallery img.active {
+      display: block;
+    }
     .gallery button {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background-color: rgba(30, 58, 138, 0.7);
-      color: white;
+      background-color: rgba(0,0,0,0.5);
       border: none;
+      color: white;
       padding: 0.5rem 1rem;
       cursor: pointer;
       border-radius: 5px;
+      font-size: 1rem;
     }
     .gallery button.prev { left: 10px; }
     .gallery button.next { right: 10px; }
+    h2 {
+      color: #1e3a8a;
+      margin-bottom: 0.5rem;
+    }
+    p {
+      margin: 0.3rem 0;
+    }
+    .label {
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <section>
+  <div class="container">
     <h1>Агентство "Дом рядом"</h1>
 
-    <h2>1-комнатная квартира в Химках</h2>
     <div class="property">
+      <h2>1-комнатная квартира в Химках</h2>
       <div class="gallery" id="gallery-flat1">
-        <img src="https://cdn.pixabay.com/photo/2016/03/27/22/16/living-room-1285157_1280.jpg" alt="Гостиная" class="active">
+        <img src="https://cdn.pixabay.com/photo/2016/03/27/22/16/living-room-1285157_1280.jpg" class="active" alt="Гостиная">
         <img src="https://cdn.pixabay.com/photo/2017/05/14/17/49/kitchen-2317819_1280.jpg" alt="Кухня">
         <img src="https://cdn.pixabay.com/photo/2021/10/30/10/00/bathroom-6755162_1280.jpg" alt="Ванная">
         <button class="prev" onclick="changeSlide('gallery-flat1', -1)">◀</button>
         <button class="next" onclick="changeSlide('gallery-flat1', 1)">▶</button>
       </div>
-      <p><strong>Цена:</strong> 45 000 ₽/мес</p>
-      <p><strong>Отделка:</strong> Евроремонт</p>
-      <p><strong>Парковка:</strong> Во дворе</p>
-      <p><strong>Инфраструктура:</strong> Метро, ТЦ, аптеки, школы</p>
+      <p><span class="label">Цена:</span> 45 000 ₽/мес</p>
+      <p><span class="label">Отделка:</span> Евроремонт</p>
+      <p><span class="label">Парковка:</span> Во дворе</p>
+      <p><span class="label">Инфраструктура:</span> Метро, ТЦ, аптеки, школы</p>
     </div>
 
-    <h2>2-комнатная квартира в Химках</h2>
     <div class="property">
+      <h2>2-комнатная квартира в Химках</h2>
       <div class="gallery" id="gallery-flat2">
-        <img src="https://cdn.pixabay.com/photo/2017/08/06/01/35/kitchen-2589676_1280.jpg" alt="Кухня" class="active">
+        <img src="https://cdn.pixabay.com/photo/2017/08/06/01/35/kitchen-2589676_1280.jpg" class="active" alt="Кухня">
         <img src="https://cdn.pixabay.com/photo/2016/11/22/07/09/living-room-1840463_1280.jpg" alt="Гостиная">
         <img src="https://cdn.pixabay.com/photo/2017/02/17/16/37/bathroom-2079981_1280.jpg" alt="Ванная">
         <button class="prev" onclick="changeSlide('gallery-flat2', -1)">◀</button>
         <button class="next" onclick="changeSlide('gallery-flat2', 1)">▶</button>
       </div>
-      <p><strong>Цена:</strong> 8 500 000 ₽</p>
-      <p><strong>Отделка:</strong> Чистовая</p>
-      <p><strong>Парковка:</strong> Подземная и гостевая</p>
-      <p><strong>Инфраструктура:</strong> Детсад, супермаркет, спорткомплекс</p>
+      <p><span class="label">Цена:</span> 8 500 000 ₽</p>
+      <p><span class="label">Отделка:</span> Чистовая</p>
+      <p><span class="label">Парковка:</span> Подземная и гостевая</p>
+      <p><span class="label">Инфраструктура:</span> Детсад, супермаркет, спорткомплекс</p>
     </div>
 
-    <h2>Дом в Подмосковье</h2>
     <div class="property">
+      <h2>Дом в Подмосковье</h2>
       <div class="gallery" id="gallery-house">
-        <img src="https://cdn.pixabay.com/photo/2020/06/06/10/42/house-5269147_1280.jpg" alt="Фасад" class="active">
+        <img src="https://cdn.pixabay.com/photo/2020/06/06/10/42/house-5269147_1280.jpg" class="active" alt="Фасад">
         <img src="https://cdn.pixabay.com/photo/2017/06/26/02/47/kitchen-2440467_1280.jpg" alt="Кухня">
         <img src="https://cdn.pixabay.com/photo/2016/09/23/18/46/living-room-1690581_1280.jpg" alt="Гостиная">
         <button class="prev" onclick="changeSlide('gallery-house', -1)">◀</button>
         <button class="next" onclick="changeSlide('gallery-house', 1)">▶</button>
       </div>
-      <p><strong>Цена:</strong> 18 000 000 ₽</p>
-      <p><strong>Отделка:</strong> Дизайнерская</p>
-      <p><strong>Парковка:</strong> Гараж и стоянка</p>
-      <p><strong>Инфраструктура:</strong> Лес, озеро, магазины, транспорт</p>
+      <p><span class="label">Цена:</span> 18 000 000 ₽</p>
+      <p><span class="label">Отделка:</span> Дизайнерская</p>
+      <p><span class="label">Парковка:</span> Гараж и стоянка</p>
+      <p><span class="label">Инфраструктура:</span> Лес, озеро, магазины, транспорт</p>
     </div>
-  </section>
+  </div>
 
   <script>
     function changeSlide(galleryId, direction) {
       const gallery = document.getElementById(galleryId);
-      const images = gallery.querySelectorAll('img');
-      let index = [...images].findIndex(img => img.classList.contains('active'));
-      images[index].classList.remove('active');
-      index = (index + direction + images.length) % images.length;
-      images[index].classList.add('active');
+      const images = gallery.querySelectorAll("img");
+      let currentIndex = Array.from(images).findIndex(img => img.classList.contains("active"));
+      images[currentIndex].classList.remove("active");
+      let newIndex = (currentIndex + direction + images.length) % images.length;
+      images[newIndex].classList.add("active");
     }
   </script>
 </body>
