@@ -2,133 +2,193 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Дом рядом — Агентство недвижимости</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Дом рядом — аренда и продажа недвижимости</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://chatbot.gitcommitt.com/assets/widget/style.css" />
   <style>
     body {
       margin: 0;
       padding: 2rem;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f4f8;
-      color: #333;
-    }
-    .container {
-      max-width: 960px;
-      margin: auto;
-      background: #fff;
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      font-family: 'Roboto', sans-serif;
+      background: #f4f6f8;
+      color: #2b2d42;
+      line-height: 1.6;
     }
     h1 {
       text-align: center;
       color: #1e3a8a;
-      margin-bottom: 2rem;
-    }
-    .property {
-      margin-bottom: 3rem;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 2rem;
-    }
-    .gallery {
-      position: relative;
-      overflow: hidden;
-      border-radius: 10px;
       margin-bottom: 1rem;
     }
-    .gallery img {
-      width: 100%;
-      display: none;
+    section {
+      max-width: 1000px;
+      margin: auto;
+      background: #ffffff;
+      padding: 2rem;
       border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
-    .gallery img.active {
-      display: block;
+    h2 {
+      color: #374151;
+      margin-top: 1.5rem;
     }
-    .gallery button {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0,0,0,0.5);
-      border: none;
-      color: white;
-      padding: 0.5rem 1rem;
-      cursor: pointer;
-      border-radius: 5px;
+    .property {
+      margin-top: 1.5rem;
+    }
+    .property img {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 8px;
+      margin: 0.5rem 0;
+    }
+    .property h3 {
+      margin-bottom: 0.2rem;
+      color: #1e3a8a;
+    }
+    .property p {
+      margin: 0.2rem 0;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    input, textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 6px;
       font-size: 1rem;
     }
-    .gallery button.prev { left: 10px; }
-    .gallery button.next { right: 10px; }
-    h2 {
-      color: #1e3a8a;
-      margin-bottom: 0.5rem;
+    button {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
-    p {
-      margin: 0.3rem 0;
+    button:hover {
+      background-color: #2c5282;
     }
-    .label {
-      font-weight: bold;
+    .controls {
+      margin: 1rem 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .controls input, .controls button {
+      flex: 1;
+      min-width: 200px;
+    }
+    .contact-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+    .contact-buttons a {
+      background-color: #1e3a8a;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1rem;
+      border-radius: 6px;
+      text-align: center;
+    }
+    .contact-buttons a:hover {
+      background-color: #2c5282;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Агентство "Дом рядом"</h1>
-
-    <div class="property">
-      <h2>1-комнатная квартира в Химках</h2>
-      <div class="gallery" id="gallery-flat1">
-        <img src="https://cdn.pixabay.com/photo/2016/03/27/22/16/living-room-1285157_1280.jpg" class="active" alt="Гостиная">
-        <img src="https://cdn.pixabay.com/photo/2017/05/14/17/49/kitchen-2317819_1280.jpg" alt="Кухня">
-        <img src="https://cdn.pixabay.com/photo/2021/10/30/10/00/bathroom-6755162_1280.jpg" alt="Ванная">
-        <button class="prev" onclick="changeSlide('gallery-flat1', -1)">◀</button>
-        <button class="next" onclick="changeSlide('gallery-flat1', 1)">▶</button>
-      </div>
-      <p><span class="label">Цена:</span> 45 000 ₽/мес</p>
-      <p><span class="label">Отделка:</span> Евроремонт</p>
-      <p><span class="label">Парковка:</span> Во дворе</p>
-      <p><span class="label">Инфраструктура:</span> Метро, ТЦ, аптеки, школы</p>
+  <h1>Агентство "Дом рядом"</h1>
+  <section>
+    <h2>Фильтр по цене и поиск</h2>
+    <div class="controls">
+      <button onclick="filterByPrice(0, 5000000)">До 5 млн</button>
+      <button onclick="filterByPrice(5000000, 10000000)">5–10 млн</button>
+      <button onclick="filterByPrice(10000000, 999999999)">10+ млн</button>
+      <input type="text" id="searchInput" oninput="searchProperties()" placeholder="Поиск (например: Химки, сауна, ремонт)" />
     </div>
 
-    <div class="property">
-      <h2>2-комнатная квартира в Химках</h2>
-      <div class="gallery" id="gallery-flat2">
-        <img src="https://cdn.pixabay.com/photo/2017/08/06/01/35/kitchen-2589676_1280.jpg" class="active" alt="Кухня">
-        <img src="https://cdn.pixabay.com/photo/2016/11/22/07/09/living-room-1840463_1280.jpg" alt="Гостиная">
-        <img src="https://cdn.pixabay.com/photo/2017/02/17/16/37/bathroom-2079981_1280.jpg" alt="Ванная">
-        <button class="prev" onclick="changeSlide('gallery-flat2', -1)">◀</button>
-        <button class="next" onclick="changeSlide('gallery-flat2', 1)">▶</button>
-      </div>
-      <p><span class="label">Цена:</span> 8 500 000 ₽</p>
-      <p><span class="label">Отделка:</span> Чистовая</p>
-      <p><span class="label">Парковка:</span> Подземная и гостевая</p>
-      <p><span class="label">Инфраструктура:</span> Детсад, супермаркет, спорткомплекс</p>
+    <h2>Аренда</h2>
+    <div class="property" data-price="0" data-text="химки евроремонт мебель техника аренда">
+      <h3>1-комнатная квартира в Химках, 38 м²</h3>
+      <img src="https://cdn.pixabay.com/photo/2016/03/27/22/16/living-room-1285157_1280.jpg" alt="Гостиная">
+      <img src="https://cdn.pixabay.com/photo/2017/05/14/17/49/kitchen-2317819_1280.jpg" alt="Кухня">
+      <p><strong>Цена:</strong> 45 000 ₽/мес</p>
+      <p><strong>Описание:</strong> Уютная квартира с евроремонтом, встроенной кухней, мебелью и техникой.</p>
+      <p><strong>Отделка:</strong> Евроремонт</p>
+      <p><strong>Парковка:</strong> Свободная парковка во дворе</p>
+      <p><strong>Инфраструктура:</strong> ТЦ "Мега", метро Планерная, школы, аптеки</p>
     </div>
 
-    <div class="property">
-      <h2>Дом в Подмосковье</h2>
-      <div class="gallery" id="gallery-house">
-        <img src="https://cdn.pixabay.com/photo/2020/06/06/10/42/house-5269147_1280.jpg" class="active" alt="Фасад">
-        <img src="https://cdn.pixabay.com/photo/2017/06/26/02/47/kitchen-2440467_1280.jpg" alt="Кухня">
-        <img src="https://cdn.pixabay.com/photo/2016/09/23/18/46/living-room-1690581_1280.jpg" alt="Гостиная">
-        <button class="prev" onclick="changeSlide('gallery-house', -1)">◀</button>
-        <button class="next" onclick="changeSlide('gallery-house', 1)">▶</button>
-      </div>
-      <p><span class="label">Цена:</span> 18 000 000 ₽</p>
-      <p><span class="label">Отделка:</span> Дизайнерская</p>
-      <p><span class="label">Парковка:</span> Гараж и стоянка</p>
-      <p><span class="label">Инфраструктура:</span> Лес, озеро, магазины, транспорт</p>
+    <h2>Продажа</h2>
+    <div class="property" data-price="8500000" data-text="химки чистовая квартира паркинг супермаркет">
+      <h3>2-комнатная квартира в Химках, 62 м²</h3>
+      <img src="https://cdn.pixabay.com/photo/2017/08/06/01/35/kitchen-2589676_1280.jpg" alt="Кухня">
+      <img src="https://cdn.pixabay.com/photo/2016/11/22/07/09/living-room-1840463_1280.jpg" alt="Гостиная">
+      <p><strong>Цена:</strong> 8 500 000 ₽</p>
+      <p><strong>Описание:</strong> Светлая квартира с балконом и панорамными окнами, чистовая отделка.</p>
+      <p><strong>Отделка:</strong> Чистовая</p>
+      <p><strong>Парковка:</strong> Подземная и гостевая</p>
+      <p><strong>Инфраструктура:</strong> Спортзал, супермаркет, детсад, остановка</p>
     </div>
-  </div>
+
+    <div class="property" data-price="18000000" data-text="коттедж дом подмосковье дизайнерская сауна камин">
+      <h3>Дом в Подмосковье, 120 м²</h3>
+      <img src="https://cdn.pixabay.com/photo/2016/11/29/05/08/architecture-1867187_1280.jpg" alt="Фасад">
+      <img src="https://cdn.pixabay.com/photo/2016/07/21/14/16/kitchen-1536019_1280.jpg" alt="Кухня">
+      <img src="https://cdn.pixabay.com/photo/2016/12/30/07/49/architecture-1942527_1280.jpg" alt="Гостиная">
+      <p><strong>Цена:</strong> 18 000 000 ₽</p>
+      <p><strong>Описание:</strong> Коттедж с террасой, сауной, камином и дизайнерской отделкой.</p>
+      <p><strong>Отделка:</strong> Дизайнерская</p>
+      <p><strong>Парковка:</strong> Гараж и стоянка на участке</p>
+      <p><strong>Инфраструктура:</strong> Лес, озеро, магазин, транспорт</p>
+    </div>
+
+    <h2>Оставьте заявку, и мы вам перезвоним</h2>
+    <form onsubmit="event.preventDefault(); alert('Спасибо! Мы свяжемся с вами в ближайшее время.')">
+      <input type="text" placeholder="Ваше имя" required />
+      <input type="tel" placeholder="Телефон" required />
+      <textarea rows="4" placeholder="Комментарий"></textarea>
+      <button type="submit">Отправить заявку</button>
+    </form>
+
+    <div class="contact-buttons">
+      <a href="tel:+74951234567">📞 Перезвоните мне</a>
+      <a href="https://wa.me/79991234567" target="_blank">💬 Заявка в WhatsApp</a>
+    </div>
+
+    <h2>Контакты</h2>
+    <p>Email: info@domryadom.ru</p>
+    <p>Телефон: +7 (495) 123-45-67</p>
+    <p>Адрес: г. Москва, ул. Примерная, д. 7</p>
+  </section>
 
   <script>
-    function changeSlide(galleryId, direction) {
-      const gallery = document.getElementById(galleryId);
-      const images = gallery.querySelectorAll("img");
-      let currentIndex = Array.from(images).findIndex(img => img.classList.contains("active"));
-      images[currentIndex].classList.remove("active");
-      let newIndex = (currentIndex + direction + images.length) % images.length;
-      images[newIndex].classList.add("active");
+    function filterByPrice(min, max) {
+      document.querySelectorAll(".property").forEach(p => {
+        const price = parseInt(p.dataset.price);
+        p.style.display = (price >= min && price <= max || price === 0 && min === 0) ? "block" : "none";
+      });
     }
+
+    function searchProperties() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      document.querySelectorAll(".property").forEach(p => {
+        const text = p.dataset.text.toLowerCase();
+        p.style.display = text.includes(query) ? "block" : "none";
+      });
+    }
+  </script>
+
+  <script src="https://chatbot.gitcommitt.com/assets/widget/loader-snippet.js"></script>
+  <script>
+    const scriptElement = document.createElement("script");
+    scriptElement.src = `https://chatbot.gitcommitt.com/assets/widget/chat-widget.umd.js?v=${Math.floor(Math.random() * 10000000)}`;
+    document.body.appendChild(scriptElement);
   </script>
 </body>
 </html>
