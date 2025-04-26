@@ -8,21 +8,34 @@
   <link rel="stylesheet" href="https://chatbot.gitcommitt.com/assets/widget/style.css" />
   <style>
     body { font-family: Arial; background: #f5f7fa; margin: 0; color: #111; }
-    .container { max-width: 1100px; margin: auto; padding: 20px; background: #fff; }
     header {
-      font-size: 3rem;
+      font-size: 2.5rem;
       font-weight: bold;
       color: #003366;
-      margin-bottom: 10px;
       text-align: center;
+      padding: 20px;
+      background: #fff;
     }
+    nav {
+      background: #003366;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .container { max-width: 1100px; margin: auto; padding: 20px; background: #fff; }
     h2 { color: #003366; margin-top: 40px; }
 
     .search-filter {
       display: flex;
-      gap: 10px;
       flex-wrap: wrap;
       justify-content: center;
+      gap: 10px;
       margin: 20px 0;
     }
     .search-filter input, .search-filter button {
@@ -32,34 +45,51 @@
       border: 1px solid #ccc;
     }
 
-    .contact-buttons {
-      display: flex; gap: 15px; margin: 15px 0;
-      justify-content: center;
+    .contact-buttons, .form-buttons {
+      display: flex; gap: 15px; margin: 15px 0; justify-content: center;
     }
-    .contact-buttons a {
+    .contact-buttons a, .form-buttons button {
       background-color: #007bff;
       color: white;
       padding: 10px 20px;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      border: none;
       transition: background-color 0.3s ease;
     }
-    .contact-buttons a:hover {
+    .contact-buttons a:hover, .form-buttons button:hover {
       background-color: #0056b3;
     }
 
     .card { margin-bottom: 40px; }
     .card h3 { color: #003399; margin-bottom: 10px; }
+    .card .images {
+      display: flex;
+      overflow-x: auto;
+      gap: 10px;
+      margin: 10px 0;
+    }
     .card img {
       width: 300px;
       height: 200px;
       object-fit: cover;
       border-radius: 8px;
-      margin-right: 10px;
     }
-    .card .images { display: flex; gap: 10px; margin: 10px 0; }
     strong { font-weight: bold; }
+
+    form { max-width: 500px; margin: auto; background: #eef2f7; padding: 20px; border-radius: 8px; }
+    form input, form textarea {
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 10px;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .reviews, .blog { background: #f0f4f8; padding: 20px; border-radius: 8px; margin-top: 40px; }
+    .reviews p, .blog p { margin-bottom: 10px; }
 
     footer {
       text-align: center;
@@ -72,9 +102,15 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <header>Агентство "Дом рядом"</header>
+  <header>Агентство "Дом рядом"</header>
+  <nav>
+    <a href="#rent">Аренда</a>
+    <a href="#sale">Продажа</a>
+    <a href="#map">Карта</a>
+    <a href="#contact">Контакты</a>
+  </nav>
 
+  <div class="container">
     <div class="search-filter">
       <input type="text" id="searchBox" placeholder="Поиск...">
       <button onclick="search()">🔍 Поиск</button>
@@ -83,16 +119,7 @@
       <button onclick="filterPrice(10000000, 999999999)">10+ млн</button>
     </div>
 
-    <section>
-      <h2>О нас</h2>
-      <p>Мы подбираем и сопровождаем сделки по аренде и продаже квартир, домов и апартаментов в Москве и Подмосковье.</p>
-      <div class="contact-buttons">
-        <a href="tel:+74951234567">📞 Перезвоните мне</a>
-        <a href="https://wa.me/79991234567">💬 Заявка в WhatsApp</a>
-      </div>
-    </section>
-
-    <section>
+    <section id="rent">
       <h2>Аренда</h2>
       <div class="card" data-price="45000" data-text="1-комнатная квартира в Химках евро кухня мебель техника Мега Планерная">
         <h3>1-комнатная квартира в Химках, 38 м²</h3>
@@ -107,7 +134,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="sale">
       <h2>Продажа</h2>
       <div class="card" data-price="8500000" data-text="2-комнатная квартира Химки панорамные окна отделка балкон супермаркет">
         <h3>2-комнатная квартира в Химках, 62 м²</h3>
@@ -134,20 +161,42 @@
       </div>
     </section>
 
-    <section>
+    <section id="map">
       <h2>Карта объектов</h2>
       <script type="text/javascript" charset="utf-8" async
         src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A1603bdabbb29214c59406e23a9dd0c9787e8f34dcc2be1f435fd58599ccf089f&amp;width=100%25&amp;height=400&amp;lang=ru_RU&amp;scroll=true">
       </script>
     </section>
 
-    <footer>
-      <p><strong>Контакты</strong><br>
-      Адрес: г. Москва, ул. Примерная, д. 7</p>
+    <section id="form">
+      <h2>Оставить заявку</h2>
+      <form>
+        <input type="text" placeholder="Ваше имя" required />
+        <input type="tel" placeholder="Телефон" required />
+        <textarea placeholder="Сообщение или вопрос"></textarea>
+        <div class="form-buttons">
+          <button type="submit">Отправить</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="reviews">
+      <h2>Отзывы клиентов</h2>
+      <p>🧑 Иван П.: "Сделка прошла быстро и спокойно!"</p>
+      <p>👩 Мария К.: "Подобрали квартиру за 2 дня, спасибо!"</p>
+    </section>
+
+    <section class="blog">
+      <h2>Полезные советы</h2>
+      <p>📌 Как снять квартиру без посредников?</p>
+      <p>📌 Что важно при покупке дома в Подмосковье?</p>
+    </section>
+
+    <footer id="contact">
+      <p><strong>Контакты</strong><br>Адрес: г. Москва, ул. Примерная, д. 7</p>
     </footer>
   </div>
 
-  <!-- Фильтрация и поиск -->
   <script>
     function filterPrice(min, max) {
       document.querySelectorAll(".card").forEach(card => {
@@ -164,7 +213,6 @@
     }
   </script>
 
-  <!-- Подключение чат-бота (полный код) -->
   <script type="module" src="./main.js"></script>
   <script src="https://chatbot.gitcommitt.com/assets/widget/loader-snippet.js"></script>
   <script>
