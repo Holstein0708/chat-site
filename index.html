@@ -10,11 +10,13 @@
       font-family: Arial, sans-serif;
       background: #e6f0fa;
       color: #333;
+      overflow-x: hidden;
     }
     .container {
       max-width: 1100px;
       margin: auto;
       padding: 2rem;
+      animation: fadeIn 1s ease-in-out;
     }
     header {
       text-align: center;
@@ -63,6 +65,7 @@
       gap: 1rem;
       flex: 1 1 100%;
       box-shadow: 0 0 6px rgba(0,0,0,0.05);
+      animation: slideUp 0.6s ease forwards;
     }
     .card img {
       width: 180px;
@@ -93,16 +96,31 @@
       border-radius: 6px;
       font-weight: bold;
     }
+    iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 12px;
+      margin-top: 1rem;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <header>Дом рядом</header>
     <div class="filters">
-      <button>До 5 млн</button>
-      <button>5–10 млн</button>
-      <button>10+ млн</button>
-      <input type="text" placeholder="Поиск..." />
+      <button onclick="filterPrice(0, 5000000)">До 5 млн</button>
+      <button onclick="filterPrice(5000000, 10000000)">5–10 млн</button>
+      <button onclick="filterPrice(10000000, 100000000)">10+ млн</button>
+      <input type="text" placeholder="Поиск..." oninput="searchProperties(this.value)" />
     </div>
 
     <section>
@@ -117,7 +135,7 @@
     <section>
       <h2>Аренда</h2>
       <div class="cards">
-        <div class="card">
+        <div class="card" data-price="65000" data-text="аренда квартира химки">
           <img src="https://cdn.pixabay.com/photo/2020/01/24/11/31/sofa-4782162_1280.jpg" alt="Интерьер">
           <div class="info">
             <p><strong>65 000 ₽</strong></p>
@@ -134,7 +152,7 @@
     <section>
       <h2>Продажа</h2>
       <div class="cards">
-        <div class="card">
+        <div class="card" data-price="8500000" data-text="продажа квартира химки">
           <img src="https://cdn.pixabay.com/photo/2021/12/06/18/09/interior-6849460_1280.jpg" alt="Интерьер">
           <div class="info">
             <p><strong>8 500 000 ₽</strong></p>
@@ -146,7 +164,7 @@
           <img src="https://cdn.pixabay.com/photo/2018/05/02/14/49/apartment-3362676_1280.jpg" alt="Фасад">
         </div>
 
-        <div class="card">
+        <div class="card" data-price="18000000" data-text="дом подмосковье продажа">
           <img src="https://cdn.pixabay.com/photo/2017/07/12/15/39/house-2492055_1280.jpg" alt="Фасад">
           <div class="info">
             <p><strong>18 000 000 ₽</strong></p>
@@ -159,6 +177,27 @@
         </div>
       </div>
     </section>
+
+    <section>
+      <h2>Карта объектов</h2>
+      <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3Aabecb8001ac69b740f567658d7e9c530e63e27808e496ec48b0b902e00271ca9&amp;source=constructor" allowfullscreen></iframe>
+    </section>
   </div>
+
+  <script>
+    function filterPrice(min, max) {
+      document.querySelectorAll(".card").forEach(card => {
+        const price = parseInt(card.dataset.price);
+        card.style.display = (price >= min && price <= max) ? "flex" : "none";
+      });
+    }
+    function searchProperties(query) {
+      query = query.toLowerCase();
+      document.querySelectorAll(".card").forEach(card => {
+        const text = card.dataset.text.toLowerCase();
+        card.style.display = text.includes(query) ? "flex" : "none";
+      });
+    }
+  </script>
 </body>
 </html>
